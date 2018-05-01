@@ -1,7 +1,9 @@
 class Card:
     def __init__(self, value):
         self.value = (value % 13) + 1
-        self.suit = value % 4
+        suitValue = value - 52 * (value // 52) if value > 52 else value
+        self.suit = (0 if suitValue < 52 / 4 else 1 if suitValue < 52 * 2 / 4
+                     else 2 if suitValue < 52 * 3 / 4 else 3)
         return
     
     def __repr__(self):
@@ -48,4 +50,4 @@ def shuffleDeck(deck=myDeck, shuffles=1):
         for i in range(len(deck.cards) - 1):
             j = randint(i, len(deck.cards) - 1)
             deck.cards[i], deck.cards[j] = deck.cards[j], deck.cards[i]
-    print('That deck has been shuffled %i times' % shuffles)
+    #print('That deck has been shuffled %i times' % shuffles)
