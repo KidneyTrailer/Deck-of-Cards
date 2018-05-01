@@ -13,7 +13,7 @@ class Card:
         suit = 'Spades'
         if self.suit == 1:  suit = 'Hearts'
         elif self.suit == 2:    suit = 'Clubs'
-        else:   suit = 'Diamonds'
+        elif self.suit == 3:    suit = 'Diamonds'
         return suit
 
     def getCardType(self):
